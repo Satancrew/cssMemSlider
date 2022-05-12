@@ -29,23 +29,35 @@ h1 {
 }
 
 main {
-    width: 40%;
+    width: calc(100% - 55%);
     height: 40rem;
     overflow: hidden;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
 .slider {
     display: flex;
-    width: 500%;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .slider input {
     display: none;
 }
 
+.all-pictures {
+    width: 500%;
+    display: flex;
+}
 .picture {
     width: 20%;
-    transition: 2s;
+    transition: 0.4s;
 }
 
 .picture img {
@@ -59,10 +71,27 @@ main {
     justify-content: flex-end;
 }
 
-.mem-info {
-    font-size: 18px;
+.navigation-and-info{
+    display: flex;
+    justify-content: space-between
+}
+
+.mems-info {
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    height: 1.5rem;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.mem-info {
+    width: 30rem;
+    transition: 0.4s;
+    height: 3rem;
 }
 
      /* css for slide navigation */
@@ -70,6 +99,7 @@ main {
     display: flex;
     gap: 10px;  
     justify-content: flex-end;
+    height: 1.5vh;
 }
   
 .navigation-button {
@@ -84,19 +114,35 @@ main {
     background: black;
     }
 
-#radio-1:checked~.first {
+#radio-1:checked~.all-pictures > .first {
     margin-left: 0;
 }
   
-#radio-2:checked~.first {
+#radio-2:checked~.all-pictures > .first {
     margin-left: -20%;
 }
   
-#radio-3:checked~.first {
-     margin-left: -40%;
+#radio-3:checked~.all-pictures > .first {
+    margin-left: -40%;
 }
   
-#radio-4:checked~.first {
+#radio-4:checked~.all-pictures > .first {
     margin-left: -60%;
 }
+
+
+#radio-1:checked~.navigation-and-info > .mems-info > .second {
+    margin-top: 0;
+}
   
+#radio-2:checked~.navigation-and-info > .mems-info > .second {
+    margin-top: -9%;
+}
+  
+#radio-3:checked~.navigation-and-info > .mems-info > .second {
+    margin-top: -17%;
+}
+  
+#radio-4:checked~.navigation-and-info > .mems-info > .second{
+    margin-top: -27%;
+}
