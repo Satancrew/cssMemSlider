@@ -88,7 +88,6 @@ main {
 }
 
 .mem-info {
-    width: 20rem;
     transition: 0.4s;
     height: 70%;
     flex-shrink: 0;
@@ -125,6 +124,11 @@ main {
 
 .test-button:hover {
     background:#23a6d5;
+}
+
+/* Анимация нажатия */
+.navigation-button:active .test-button {
+    transform: scale(0.8);
 }
 
 /* Двигаем мемы */
@@ -187,4 +191,41 @@ main {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+@media (max-width: 1150px) {
+    main {
+        width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 560px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .navigation-and-info {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .navigation {
+        justify-content: center;
+    }
+
+    .slider {
+        gap: 0.5rem;
+    }
+
+    .mem-info {
+        height: 100%;
+    }
+
+    .picture img {
+        height: 25rem;
+    }
 }
