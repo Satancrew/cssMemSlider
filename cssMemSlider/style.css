@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 100%;
+    max-height: 100%;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    width: 70%;
+    padding-bottom: 5vh;
+}
+
+h1 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 3em;
+}
+
+main {
+    width: calc(100% - 55%);
+    height: 40rem;
+    overflow: hidden;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+.slider {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.slider input {
+    display: none;
+}
+
+.all-pictures {
+    width: 500%;
+    display: flex;
+}
+.picture {
+    width: 20%;
+    transition: 0.4s;
+}
+
+.picture img {
+    height: 35rem;
+    width: 100%;
+}
+
+.radio-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navigation-and-info{
+    display: flex;
+    justify-content: space-between
+}
+
+.mems-info {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    height: 5rem;
+    overflow: hidden;
+}
+
+.mem-info {
+    transition: 0.4s;
+    height: 70%;
+    flex-shrink: 0;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    height: 1.5vh;
+}
+  
+.navigation-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 1rem;
+    width: 2rem;
+    padding: 0.5rem;
+}
+  
+.navigation-button:hover {
+    background: inherit;
+}
+
+.test-button {
+    width: 2vh;
+    height: 2vh;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: antiquewhite;
+    transition: .3s;
+}
+
+.test-button:hover {
+    background:#23a6d5;
+}
+
+/* Анимация нажатия */
+.navigation-button:active .test-button {
+    transform: scale(0.8);
+}
+
+/* Двигаем мемы */
+#radio-1:checked~.all-pictures > .first {
+    margin-left: 0;
+}
+  
+#radio-2:checked~.all-pictures > .first {
+    margin-left: -20%;
+}
+  
+#radio-3:checked~.all-pictures > .first {
+    margin-left: -40%;
+}
+  
+#radio-4:checked~.all-pictures > .first {
+    margin-left: -60%;
+}
+
+/* Двигаем цитаты */
+#radio-1:checked~.navigation-and-info > .mems-info > .second {
+    margin-top: 0;
+}
+  
+#radio-2:checked~.navigation-and-info > .mems-info > .mem-info {
+    transform:translateY(-100%);
+}
+#radio-3:checked~.navigation-and-info > .mems-info > .mem-info {
+    transform:translateY(-200%);
+}
+  
+#radio-4:checked~.navigation-and-info > .mems-info > .mem-info{
+    transform:translateY(-300%);
+}
+
+/* Фон кнопок при нажатии */
+#radio-1:checked~ .navigation-and-info > .navigation >label[for="radio-1"]>.test-button {
+    background:#23a6d5;
+}
+
+#radio-2:checked~ .navigation-and-info > .navigation >label[for="radio-2"]>.test-button {
+    background:#23a6d5;
+}
+
+#radio-3:checked~ .navigation-and-info > .navigation >label[for="radio-3"]>.test-button {
+    background:#23a6d5;
+}
+
+#radio-4:checked~ .navigation-and-info > .navigation >label[for="radio-4"]>.test-button {
+    background:#23a6d5;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media (max-width: 1150px) {
+    main {
+        width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 560px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .navigation-and-info {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .navigation {
+        justify-content: center;
+    }
+
+    .slider {
+        gap: 0.5rem;
+    }
+
+    .mem-info {
+        height: 100%;
+    }
+
+    .picture img {
+        height: 25rem;
+    }
+}
